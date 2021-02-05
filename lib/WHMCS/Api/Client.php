@@ -28,6 +28,17 @@ class Client extends AbstractApi {
         ]);
     }
 
+    /**
+     * @param string $search
+     * @param array $opts
+     * @return mixed|string
+     * @throws \Http\Client\Exception
+     */
+    public function get(string $search, $opts = []){
+        return $this->send('GetClients', array_merge($opts, [
+            'search' => $search
+        ]));
+    }
 
 
 
