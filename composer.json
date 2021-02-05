@@ -1,6 +1,7 @@
 {
     "name": "cwatto/whmcsapi",
     "type": "library",
+    "version": "0.2",
     "authors": [
         {
             "name": "cWatto",
