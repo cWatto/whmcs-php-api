@@ -1,0 +1,44 @@
+{
+    "name": "cwatto/whmcsapi",
+    "type": "library",
+    "authors": [
+        {
+            "name": "cWatto",
+            "email": "hello@cwatson.co"
+        }
+    ],
+    "description": "A heavily modified php-github-api library to work with the WHMCS API instead",
+    "require": {
+        "php": "^7.2.5 || ^8.0",
+        "ext-json": "*",
+        "php-http/cache-plugin": "^1.7.1",
+        "php-http/client-common": "^2.3",
+        "php-http/discovery": "^1.12",
+        "php-http/httplug": "^2.2",
+        "php-http/multipart-stream-builder": "^1.1.2",
+        "psr/cache": "^1.0",
+        "psr/http-client-implementation": "^1.0",
+        "psr/http-factory-implementation": "^1.0",
+        "psr/http-message": "^1.0",
+        "symfony/polyfill-php80": "^1.17",
+        "vlucas/phpdotenv": "^5.3"
+    },
+    "require-dev": {
+        "symfony/cache": "^5.1.8",
+        "guzzlehttp/psr7": "^1.7",
+        "http-interop/http-factory-guzzle": "^1.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "php-http/mock-client": "^1.4.1",
+        "phpstan/phpstan": "^0.12.57",
+        "phpstan/extension-installer": "^1.0.5",
+        "phpstan/phpstan-deprecation-rules": "^0.12.5",
+        "phpunit/phpunit": "^8.5 || ^9.4",
+        "ext-http": "*"
+    },
+    "autoload": {
+        "psr-4": { "WHMCS\\": "lib/WHMCS/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "WHMCS\\Tests\\": "test/WHMCS/Tests"}
+    }
+}
