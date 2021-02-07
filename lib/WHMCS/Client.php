@@ -23,12 +23,12 @@ use WHMCS\HttpClient\Plugin\WHMCSExceptionThrower;
 /**
  * WHMCS API Client :)
  *
- * @method Ticket ticket()
- * @method Api\Client client()
+ * @method Ticket tickets()
+ * @method Api\Client clients()
  * @method System system()
- * @method Invoice invoice()
+ * @method Invoice invoices()
  * @method Authentication auth()
- * @method Domain domain()
+ * @method Domain domains()
  *
  */
 
@@ -96,6 +96,7 @@ class Client {
      */
     public function api($name): AbstractApi {
         switch($name) {
+            case 'ticket':
             case 'tickets':
                 $api = new Api\Ticket($this);
                 break;
@@ -104,12 +105,15 @@ class Client {
                 $api = new Api\Domain($this);
                 break;
             case 'client':
+            case 'clients':
                 $api = new Api\Client($this);
                 break;
             case 'auth':
+            case 'authentication':
                 $api = new Api\Authentication($this);
                 break;
             case 'invoice':
+            case 'invoices':
                 $api = new Api\Invoice($this);
                 break;
             case 'system':

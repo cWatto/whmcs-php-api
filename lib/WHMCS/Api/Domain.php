@@ -1,13 +1,15 @@
 <?php
 namespace WHMCS\Api;
 
+use WHMCS\Response;
+
 class Domain extends AbstractApi {
 
     /**
      * Gets all tickets by a given user id
      * @param int $client_id
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function byUserId(int $client_id, array $opts = []) {
@@ -20,7 +22,7 @@ class Domain extends AbstractApi {
      * Gets a domain by domain id or by domain string
      * @param int|string $domain
      * @param $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function get($domain, array $opts = []){
@@ -34,7 +36,7 @@ class Domain extends AbstractApi {
 
     /**
      * @param string $domain
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function getWhois( string $domain ) {
@@ -45,7 +47,7 @@ class Domain extends AbstractApi {
 
     /**
      * @param $domain_id
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function getNameservers(int $domain_id){
@@ -57,7 +59,7 @@ class Domain extends AbstractApi {
     /**
      * @param $domain_id
      * @param $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function updateNameservers(int $domain_id, array $opts = []){
@@ -70,7 +72,7 @@ class Domain extends AbstractApi {
      * Sends the renew command to the registrar, regperiod will default to the system default if left blank
      * @param $domain_id
      * @param int|null $regperiod
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function renew(int $domain_id, int $regperiod = null) {

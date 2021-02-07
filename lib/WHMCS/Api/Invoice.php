@@ -1,12 +1,14 @@
 <?php
 namespace WHMCS\Api;
 
+use WHMCS\Response;
+
 class Invoice extends AbstractApi {
 
     /**
      * Gets all invoices by a given user id
      * @param int $invoice_id
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function get(int $invoice_id, array $opts = []) {
@@ -17,7 +19,7 @@ class Invoice extends AbstractApi {
 
     /**
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function all(array $opts = []){
@@ -27,7 +29,7 @@ class Invoice extends AbstractApi {
     /**
      * @param int $user_id
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function byUserId(int $user_id, array $opts = []) {

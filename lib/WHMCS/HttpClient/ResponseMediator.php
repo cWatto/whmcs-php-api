@@ -3,6 +3,7 @@
 namespace WHMCS\HttpClient;
 
 use Psr\Http\Message\ResponseInterface;
+use WHMCS\Response;
 
 class ResponseMediator {
 
@@ -11,7 +12,7 @@ class ResponseMediator {
         if (strpos($response->getHeaderLine('Content-Type'), 'application/json') === 0) {
             $content = json_decode($body, true);
             if (JSON_ERROR_NONE === json_last_error()) {
-                return $content;
+                return new Response($content);
             }
         }
 

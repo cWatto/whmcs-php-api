@@ -7,6 +7,7 @@ namespace WHMCS\Api;
 use Psr\Http\Message\StreamInterface;
 use WHMCS\Client;
 use WHMCS\HttpClient\ResponseMediator;
+use WHMCS\Response;
 
 abstract class AbstractApi {
     /**
@@ -58,10 +59,10 @@ abstract class AbstractApi {
      * @param array $parameters
      * @param array $requestHeaders
      *
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
-    protected function send(string $method, array $parameters = [], array $requestHeaders = []){
+    protected function send(string $method, array $parameters = [], array $requestHeaders = []) {
         $parameters = array_merge($parameters, [
             'action' => $method,
             'identifier' => $this->getClient()->getApiIdentifier(),

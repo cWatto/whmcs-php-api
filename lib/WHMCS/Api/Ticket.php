@@ -1,12 +1,14 @@
 <?php
 namespace WHMCS\Api;
 
+use WHMCS\Response;
+
 class Ticket extends AbstractApi {
 
     /**
      * Returns all the tickets
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function all(array $opts = []) {
@@ -17,7 +19,7 @@ class Ticket extends AbstractApi {
      * Gets all tickets by a given user id
      * @param int $client_id
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function byUserId(int $client_id, $opts = []) {
@@ -28,7 +30,7 @@ class Ticket extends AbstractApi {
 
     /**
      * Gets all the support departments of the WHMCS installation
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function departments() {
@@ -36,7 +38,7 @@ class Ticket extends AbstractApi {
     }
 
     /**
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function statuses() {
@@ -47,7 +49,7 @@ class Ticket extends AbstractApi {
      * Returns a ticket by id
      * @param $ticket_id
      * @param $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function get($ticket_id, $opts){
@@ -61,7 +63,7 @@ class Ticket extends AbstractApi {
      * @param int $attachment_id
      * @param string $attachment_type
      * @param int $index
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function attachment(int $attachment_id, string $attachment_type, int $index) {
@@ -76,7 +78,7 @@ class Ticket extends AbstractApi {
      * @param int $client_id
      * @param string $message
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function open(int $client_id,string $message, array $opts){
@@ -89,7 +91,7 @@ class Ticket extends AbstractApi {
      * @param int $ticket_id
      * @param string $message
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function addReply(int $ticket_id, string $message, array $opts){

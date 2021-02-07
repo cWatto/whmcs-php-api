@@ -1,10 +1,12 @@
 <?php
 namespace WHMCS\Api;
 
+use WHMCS\Response;
+
 class System extends AbstractApi {
 
     /**
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function details() {
@@ -12,7 +14,7 @@ class System extends AbstractApi {
     }
 
     /**
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function announcements() {

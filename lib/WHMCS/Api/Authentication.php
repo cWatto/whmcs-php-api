@@ -1,12 +1,14 @@
 <?php
 namespace WHMCS\Api;
 
+use WHMCS\Response;
+
 class Authentication extends AbstractApi {
 
     /**
      * @param int $client_id
      * @param $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function createSsoToken(int $client_id, $opts = []) {

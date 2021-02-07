@@ -1,13 +1,15 @@
 <?php
 namespace WHMCS\Api;
 
+use WHMCS\Response;
+
 class Client extends AbstractApi {
 
     /**
      * Get client addons
      * @param int $client_id
      * @param $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function products(int $client_id, array $opts = []) {
@@ -18,7 +20,7 @@ class Client extends AbstractApi {
 
     /**
      * @param int $client_id
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function details(int $client_id) {
@@ -31,7 +33,7 @@ class Client extends AbstractApi {
     /**
      * @param string $search
      * @param array $opts
-     * @return mixed|string
+     * @return Response|string
      * @throws \Http\Client\Exception
      */
     public function get(string $search, $opts = []){
