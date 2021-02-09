@@ -10,6 +10,7 @@ use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use WHMCS\Exception\AuthenticationFailedException;
+use WHMCS\Exception\BadRequestResultException;
 use WHMCS\Exception\InvalidPermissionException;
 use WHMCS\HttpClient\ResponseMediator;
 
@@ -28,6 +29,8 @@ class WHMCSExceptionThrower implements Plugin {
             if(!$result->success){
                 if(strpos($result->errorMessage, 'Invalid Permissions') !== false){
                     throw new InvalidPermissionException($result->errorMessage);
+                }else{
+                    throw new BadRequestResultException($result->errorMessage, 200);
                 }
             }
 
