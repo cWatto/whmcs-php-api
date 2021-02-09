@@ -21,13 +21,13 @@ class WHMCSExceptionThrower implements Plugin {
             $result = ResponseMediator::getContent($response);
 
             if( is_string($result) ){
-                if (strpos($result, 'Authentication Failed') !== false) {
-                    throw new AuthenticationFailedException();
-                }
+                // Some WHMCS errors return as just strings for annoying reasons, catch them here if needed
             }
 
             if(!$result->success){
                 if(strpos($result->errorMessage, 'Invalid Permissions') !== false){
+
+                }else if(strpos($result->errorMessage, 'Authentication Failed') !== false) {
                     throw new InvalidPermissionException($result->errorMessage);
                 }else{
                     throw new BadRequestResultException($result->errorMessage, 200);
