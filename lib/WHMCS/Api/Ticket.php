@@ -33,8 +33,8 @@ class Ticket extends AbstractApi {
      * @return Response|string
      * @throws \Http\Client\Exception
      */
-    public function departments() {
-        return $this->send('GetSupportDepartments');
+    public function departments($opts = []) {
+        return $this->send('GetSupportDepartments', $opts);
     }
 
     /**
@@ -42,7 +42,7 @@ class Ticket extends AbstractApi {
      * @throws \Http\Client\Exception
      */
     public function statuses() {
-        return $this->send('GetSuportStatuses');
+        return $this->send('GetSupportStatuses');
     }
 
     /**
@@ -52,7 +52,7 @@ class Ticket extends AbstractApi {
      * @return Response|string
      * @throws \Http\Client\Exception
      */
-    public function get($ticket_id, $opts){
+    public function get($ticket_id, $opts = []){
         return $this->send('GetTicket', array_merge([
             'ticketid' => $ticket_id
         ], $opts));
@@ -76,14 +76,19 @@ class Ticket extends AbstractApi {
 
     /**
      * @param int $client_id
+     * @param int $deptid
+     * @param string $subject
      * @param string $message
      * @param array $opts
      * @return Response|string
      * @throws \Http\Client\Exception
      */
-    public function open(int $client_id,string $message, array $opts){
+    public function open(int $client_id, int $deptid, string $subject, string $message, array $opts = []){
         return $this->send('OpenTicket', array_merge($opts, [
-            'clientid' => $client_id
+            'clientid' => $client_id,
+            'deptid' => $deptid,
+            'subject' => $subject,
+            'message' => $message
         ]));
     }
 
@@ -94,7 +99,7 @@ class Ticket extends AbstractApi {
      * @return Response|string
      * @throws \Http\Client\Exception
      */
-    public function addReply(int $ticket_id, string $message, array $opts){
+    public function addReply(int $ticket_id, string $message, array $opts = []){
         return $this->send('AddTicketReply', array_merge($opts, [
             'ticketid' => $ticket_id,
             'message' => $message

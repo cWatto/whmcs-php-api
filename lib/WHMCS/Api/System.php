@@ -14,11 +14,12 @@ class System extends AbstractApi {
     }
 
     /**
+     * @param array $opts
      * @return Response|string
      * @throws \Http\Client\Exception
      */
-    public function announcements() {
-        return $this->send('GetAnnouncements');
+    public function announcements($opts = []) {
+        return $this->send('GetAnnouncements', $opts);
     }
 
 }

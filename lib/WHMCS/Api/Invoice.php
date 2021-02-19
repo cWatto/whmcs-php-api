@@ -11,10 +11,10 @@ class Invoice extends AbstractApi {
      * @return Response|string
      * @throws \Http\Client\Exception
      */
-    public function get(int $invoice_id, array $opts = []) {
-        return $this->send('GetInvoice', array_merge($opts, [
+    public function get(int $invoice_id) {
+        return $this->send('GetInvoice', [
             'invoiceid' => $invoice_id
-        ]));
+        ]);
     }
 
     /**
