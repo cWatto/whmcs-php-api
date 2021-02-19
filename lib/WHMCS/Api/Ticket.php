@@ -107,4 +107,12 @@ class Ticket extends AbstractApi {
     }
 
 
+    public function update(int $client_id, int $ticket_id, $opts = []){
+        return $this->send('UpdateTicket', array_merge($opts, [
+            'userid' => $client_id,
+            'ticketid' => $ticket_id,
+        ]));
+    }
+
+
 }
